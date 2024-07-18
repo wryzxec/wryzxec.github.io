@@ -1,0 +1,26 @@
+.Button-container {
+  margin-top: 0.5em;
+  margin-right: 1em;
+}
+
+.Button {
+    background-color: transparent;
+    border: 0.1em solid #76ABAE;
+    color: #76ABAE;
+    padding: 0.5em 1em;
+    text-align: center;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    font-family: 'Crimson Text', serif;
+  }
+  
+  .Button:hover {
+    background-color: #EEEEEE;
+    color: black;
+  }
+  
+  .Button:active {
+    background-color: transparent;
+    transform: translateY(2px);
+  }

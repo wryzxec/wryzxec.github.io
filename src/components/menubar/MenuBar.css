@@ -1,0 +1,66 @@
+/* MenuBar.css */
+.MenuBar {
+  background-color: #222831;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center items vertically */
+  position: relative;
+  padding: 0.5% 1%; /* Adjust padding as needed */
+  font-size: calc(5px + 2vmin);
+  z-index: 1000;
+}
+
+.MenuBar-welcome-react-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.MenuBar-welcome {
+  color: #76ABAE;
+  font-family: 'Crimson Text', serif;
+  white-space: nowrap;
+  margin-right: 1%; /* Space between the welcome message and the logo */
+}
+
+.MenuBar-react-logo {
+  color: white;
+  width: 50px; /* Set a reasonable width */
+  height: 50px; /* Set a reasonable height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 10s linear infinite; 
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+/* New container for HomeLink and Button */
+.MenuBar-right-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.fixed-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: fadeInDown 2.0s;
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

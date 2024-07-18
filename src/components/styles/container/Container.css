@@ -1,0 +1,62 @@
+.Container {
+  background-color: #1e1e1e;
+  padding-bottom: 50px;
+}
+
+.Container-header {
+  display: flex;
+  align-items: center;
+  font-family: 'Crimson Text, serif';
+  color: #eeeeee;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.Container-title {
+  font-size: 20px;
+}
+
+.Container-date {
+  font-size: 15px;
+  margin-left: auto;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.language-icon-python{
+  font-size: 24px;
+  color: #4B8BBE;
+}
+
+.language-icon-java{
+  font-size: 30px;
+  color: #8B4513;
+}
+
+.Container-body {
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.Container-link{
+  color: #4B8BBE; /* Example link color (blue) */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.Container-link:hover,
+.Container-link:visited {
+  color: #4B8BBE; /* Keep the link color consistent on hover and visited */
+}
+
+.dot {
+  margin: 0 5px; /* Adjust spacing around the dot */
+  color: #666; /* Color of the dot */
+}

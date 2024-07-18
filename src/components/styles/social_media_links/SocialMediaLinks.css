@@ -1,0 +1,29 @@
+.social-media-links {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 0px;
+  }
+  
+  .social-media-links a {
+    color: #333;
+    font-size: 2rem;
+    margin-right: 15px;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .social-media-links a:hover {
+    color: #D44638;
+    transform: scale(1.2);
+  }
+  
+  .social-media-links a:nth-child(2):hover {
+    color: #fafbfc;
+  }
+
+  .social-media-links a:nth-child(3):hover {
+    color: #0073b1;
+  }
+  
+  .social-icon {
+    font-size: 2rem; /* Adjust the size as needed */
+  }

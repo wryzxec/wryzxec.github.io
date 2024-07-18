@@ -1,0 +1,12 @@
+.HomeLink-container {
+    margin-right: 1em;
+}
+
+.HomeLink {
+    color: #76ABAE;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  

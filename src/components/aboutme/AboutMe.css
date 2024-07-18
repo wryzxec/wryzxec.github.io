@@ -1,0 +1,23 @@
+.AboutMe {
+    width: 80%;
+    padding-top: 40px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.AboutMe-header {
+    text-align: left;
+    font-size: calc(30px + 2vmin);
+    font-family: 'Bebas Neue', cursive;
+    color: #76ABAE;
+}
+
+.AboutMe-body {
+    text-align: left;
+    font-size: 15px;
+    font-family: 'Crimson Text, serif';
+    color: #EEEEEE;
+}
+  

@@ -1,0 +1,95 @@
+.numpy-neural-network {
+    background-color: #1e1e1e;
+    height: 10000px;
+}
+
+.header {
+    padding-top: 5%;
+    margin-left: 20%;
+}
+
+.title {
+    font-size: calc(30px + 2vmin);
+    color: #76ABAE;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.desc {
+    font-size: 20px;
+    font-family: 'Crimson Text', serif;
+    color: #EEEEEE;
+    padding-bottom: 1.5%;
+}
+
+.social-icon {
+    font-size: 2rem; /* Adjust the size as needed */
+    transform: translate(0%, -15%);
+    color: #fafbfc;
+}
+  
+.github-link{
+    color: #4B8BBE;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin-left: 1%;
+}
+  
+.github-link:hover,
+.github-link:visited {
+color: #4B8BBE;
+}
+
+.dot {
+    margin: 0 5px; /* Adjust spacing around the dot */
+    color: #666; /* Color of the dot */
+  }
+
+.subtitle {
+    font-size: calc(20px + 2vmin);
+    color: #76ABAE;
+    font-family: 'Bebas Neue', cursive;
+    padding-bottom: 2.5%;
+}
+
+.subsubtitle {
+    font-size: calc(10px + 2vmin);
+    color: #EEEEEE;
+    font-family: 'Bebas Neue', cursive;
+    padding-bottom: 2.5%;
+}
+
+.body {
+    padding-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.text {
+    font-size: 15px;
+    font-family: 'Crimson Text', serif;
+    color: #EEEEEE;
+    padding-bottom: 2.5%;
+}
+
+.text-inline {
+    font-size: 16px;
+    color: #EEEEEE;
+    display: inline;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    width: 100%; /* Set the desired width here */
+    padding-bottom: 2.5%;
+}
+
+.bold-enhance {
+    font-weight: bold;
+    color: #76ABAE;
+    display: inline;
+}
+
+
