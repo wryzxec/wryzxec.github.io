@@ -8,5 +8,11 @@
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-  }
+}
+
+@media (max-width: 600px) {
+    .HomeLink {
+      font-size: 0.8em;
+    }
+}
   

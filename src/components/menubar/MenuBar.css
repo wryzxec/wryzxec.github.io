@@ -63,3 +63,9 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 600px) {
+  .MenuBar {
+    font-size: 0.8em;
+  }
+}
