@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter,  Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
-import NumpyNeuralNetwork from './pages/NumpyNeuralNetwork'
+import NumpyNeuralNetwork from './pages/NumpyNeuralNetwork';
 import Home from './pages/Home';
 
 import './App.css';
@@ -9,13 +9,12 @@ import './App.css';
 function App() {
   return (
       <div>
-        <BrowserRouter>
+        <Router>
           <Routes>
-            <Route index element={<Home />}/>
-            <Route path="/home" element={<Home />}/>
-            <Route path="/numpy-neural-network" element={<NumpyNeuralNetwork />}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/numpy-neural-network" element={<NumpyNeuralNetwork />} />
           </Routes>
-        </BrowserRouter>
+        </Router>
       </div>
   );
 }

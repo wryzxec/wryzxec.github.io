@@ -24,7 +24,7 @@ const Projects = () => {
             
             <div className='projects-body'>
                 <Container
-                    title="Visualising Island Detection with DFS & BFS Algorithms"
+                    title="Island Detection with DFS & BFS Algorithms"
                     language="java"
                     body = 
                     "Using Depth-First Search (BFS) and Breadth-First Search (BFS) to detect islands in a 2D array. Visualised with the help of JavaFX."

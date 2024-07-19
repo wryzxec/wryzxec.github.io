@@ -1,4 +1,11 @@
 .App {
   background-color: #1e1e1e;
-  height: 1000px;
+}
+
+@media (max-width: 800px) {
+  .App {
+    padding-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }

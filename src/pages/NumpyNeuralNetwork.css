@@ -1,6 +1,6 @@
 .numpy-neural-network {
     background-color: #1e1e1e;
-    height: 10000px;
+    padding-bottom: 10%;
 }
 
 .header {
@@ -91,4 +91,18 @@ color: #4B8BBE;
     display: inline;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 800px) {
 
+    .header {
+        padding-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .body {
+        padding-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}

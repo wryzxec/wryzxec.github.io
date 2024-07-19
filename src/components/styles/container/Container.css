@@ -13,40 +13,41 @@
 }
 
 .Container-title {
-  font-size: 20px;
+  font-size: 1em;
 }
 
 .Container-date {
-  font-size: 15px;
+  font-size: 1em;
+  white-space: nowrap;
   margin-left: auto;
 }
 
 .icon-container {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 1%;
 }
 
 .language-icon-python{
-  font-size: 24px;
+  font-size: 2em;
   color: #4B8BBE;
 }
 
 .language-icon-java{
-  font-size: 30px;
+  font-size: 2em;
   color: #8B4513;
 }
 
 .Container-body {
-  font-size: 15px;
+  font-size: 1em;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
 }
 
 .Container-link{
   color: #4B8BBE; /* Example link color (blue) */
   text-decoration: none; /* Remove underline */
-  font-size: 16px; /* Adjust font size */
+  font-size: 1em; /* Adjust font size */
   font-weight: bold; /* Make text bold */
   transition: color 0.3s ease; /* Smooth transition for color change */
 }
