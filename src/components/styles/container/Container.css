@@ -5,6 +5,7 @@
 
 .Container-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   font-family: 'Crimson Text, serif';
   color: #eeeeee;
@@ -14,6 +15,7 @@
 
 .Container-title {
   font-size: 1em;
+  margin-right: 2em;
 }
 
 .Container-date {

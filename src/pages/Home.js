@@ -10,8 +10,10 @@ export default function Home() {
     return (
       <div className="Home">
         <Menu />
-        <AboutMe />
-        <Projects />
+        <div className="Home-body">
+          <AboutMe />
+          <Projects />
+        </div>
       </div>
     )
 }
