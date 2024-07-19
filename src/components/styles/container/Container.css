@@ -45,19 +45,19 @@
 }
 
 .Container-link{
-  color: #4B8BBE; /* Example link color (blue) */
-  text-decoration: none; /* Remove underline */
-  font-size: 1em; /* Adjust font size */
-  font-weight: bold; /* Make text bold */
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  color: #4B8BBE;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .Container-link:hover,
 .Container-link:visited {
-  color: #4B8BBE; /* Keep the link color consistent on hover and visited */
+  color: #4B8BBE;
 }
 
 .dot {
-  margin: 0 5px; /* Adjust spacing around the dot */
-  color: #666; /* Color of the dot */
+  margin: 0 5px;
+  color: #666;
 }

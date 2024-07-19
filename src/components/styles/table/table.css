@@ -1,11 +1,11 @@
 .table-container {
   width: 100%;
-  overflow-x: auto;  /* Allows horizontal scrolling if the table is too wide */
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
-  border-collapse: collapse;  /* Ensures borders are collapsed to avoid gaps */
+  border-collapse: collapse;
   font-size: 0.8em;
   text-align: left;
   color: #EEEE;
@@ -13,24 +13,22 @@
 
 th, td {
   padding: 12px;
-  border: 1px solid #76ABAE;  /* Apply a single uniform border around each cell */
+  border: 1px solid #76ABAE;
 }
 
 th {
   background-color: #76ABAE;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 600px) {
   .table {
-    font-size: 0.7em; /* Adjust font size for smaller screens */
+    font-size: 0.7em;
   }
 
   th, td {
-    padding: 8px; /* Adjust padding for smaller screens */
+    padding: 8px;
   }
 
-  /* Optional: Hide less important columns on very small screens */
   .table th:nth-child(4),
   .table td:nth-child(4) {
     display: none;
