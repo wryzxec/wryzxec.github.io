@@ -1,23 +1,21 @@
 .table-container {
-    
-  }
-  
-table {
-width: 100%;
-border-collapse: collapse;
-font-size: 0.8em;
-text-align: left;
-color: #EEEE;
+  width: 100%;
+  overflow-x: auto;  /* Allows horizontal scrolling if the table is too wide */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;  /* Ensures borders are collapsed to avoid gaps */
+  font-size: 0.8em;
+  text-align: left;
+  color: #EEEE;
 }
 
 th, td {
-padding: 12px;
-border-bottom: 1px solid #76ABAE;
-border-right: 1px solid #76ABAE;
-border-left: 1px solid #76ABAE;
+  padding: 12px;
+  border: 1px solid #76ABAE;  /* Apply a single uniform border around each cell */
 }
 
 th {
-background-color: #76ABAE;
+  background-color: #76ABAE;
 }
-  
