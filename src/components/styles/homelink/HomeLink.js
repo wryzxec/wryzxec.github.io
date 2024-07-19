@@ -4,7 +4,7 @@ import './HomeLink.css';
 
 const HomeLink = () => {
     return (
-        <Link className='HomeLink' to='/home' >Home</Link>
+        <Link className='HomeLink' to='/' >Home</Link>
     );
 };
 
