@@ -79,12 +79,6 @@ color: #4B8BBE;
     display: inline;
 }
 
-.image img {
-    max-width: 100%;
-    height: auto;
-    padding-bottom: 2.5%;
-}
-
 .bold-enhance {
     font-weight: bold;
     color: #76ABAE;
@@ -105,3 +99,10 @@ color: #4B8BBE;
         margin-right: 5%;
     }
 }
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-bottom: 2.5%;
+  }

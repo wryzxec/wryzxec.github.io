@@ -27,6 +27,13 @@ export default function NumpyNeuralNetwork() {
             </div>
             <div className='body'>
                 <div className='subtitle'>
+                    The Goal.
+                </div>
+                <div className='text'>
+                    The aim of this project was to build a neural network from scratch, which when given an image of a handwriten digit, could accurately classify it. The main purpose of
+                    building it from scratch was to also better my own understanding of the stuff that happens 'under the hood' with popular ML frameworks like TensorFlow and PyTorch.
+                </div>
+                <div className='subtitle'>
                     The MNIST Dataset.
                 </div>
                     <div className='text'>
@@ -34,14 +41,12 @@ export default function NumpyNeuralNetwork() {
                         Each image contains only one digit from 0-9. For the purpose of training a neural network, we separate these images into two sets: the training set and the test set.
                         We allocate 60,000 images for training and 10,000 images for testing.
                     </div>
-                    <div className='image'>
-                        <img src = "/MNIST_examples.png" alt="MNIST Examples"></img>
-                    </div>
+                    <img className='image' src = "/MNIST_examples.png" alt="MNIST Examples"></img>
                     <div className = 'text'>
                         Many of the digits in the dataset are poorly drawn. For example they are not always clear [example 2] and sometimes written at angles [example 7].
                     </div>
                 <div className='subtitle'>
-                    Overview of Neural Networks.
+                    Overview of the Neural Network.
                 </div>
                     <div className='text'>
                         The type of Neural Network implemented in this project is a feedforward neural network.
@@ -69,10 +74,7 @@ export default function NumpyNeuralNetwork() {
                         and a variable number of layers. This diagram is a simplified version.
                         Each of the 10 neurons in the output layer represents the probability that the input image is the digit corresponding to that neuron (0-9).
                     </div>
-
-                    <div className='image'>
-                        <img src = "/neural_network_architecture.png" alt="Neural Network Architecture"></img>
-                    </div>
+                    <img className='image' src="/neural_network_architecture.png" alt="Neural Network Architecture" />
                 <div className='subtitle'>
                     Key Parts of the Network.
                 </div>
@@ -109,6 +111,9 @@ export default function NumpyNeuralNetwork() {
                         <BlockMath math={String.raw`
                         L(y, \hat{y}) = -\sum_{i=1}^{n} y_i \log(\hat{y}_i)
                         `} />
+
+                        Here <InlineMath math={String.raw`y`} /> is the true label of the input data and <InlineMath math={String.raw`\hat{y}`} /> is the predicted label.
+                        n is the number of classes in the dataset, in this case 10.
                     </div>
 
                     <div className='subsubtitle'>
@@ -141,10 +146,7 @@ export default function NumpyNeuralNetwork() {
                     <div className='text'>
                         Back Propagation is how the network learns. It is the process of calculating the gradient of the loss function with respect to each weight and bias in the network.
                         There are many equations involved an they are dependent on the loss and activation functions used in the network.
-
-                        Since we are using the Categorical Cross-Entropy Loss function and the ReLU and Softmax activation functions, we must have equations for the gradients of these functions.
-
-                        One thing to notice is that each equation is dependent on the previous one, which is an application of the chain rule.
+                        One thing to notice is that each equation is dependent on a previous one, which is an application of the chain rule in calculus.
                     </div>
                     <div className='text'>
                         For the Softmax layer, the equations for the gradients are as follows:
@@ -155,9 +157,12 @@ export default function NumpyNeuralNetwork() {
                         \\
                         \frac{\partial L}{\partial W_k} &= \frac{1}{m} \cdot A_{\text{k-1}}^T \cdot \frac{\partial L}{\partial z_k}\\
                         \\
-                        \frac{\partial L}{\partial b_k} &= \frac{1}{m} \cdot \sum_{i=1}^{m} \frac{\partial L}{\partial z_k}
+                        \frac{\partial L}{\partial b_k} &= \frac{1}{m} \cdot \sum_{k=1}^{m} \frac{\partial L}{\partial z_k}
                         \end{align*}
                         `} />
+
+                        Here <InlineMath math={String.raw`A_k`} /> is the output of the Softmax layer, <InlineMath math={String.raw`y_k`} /> is the true label of the input data,
+                        <InlineMath math={String.raw`W_k, b_k`} /> are the weights and biases of the Softmax layer, and <InlineMath math={String.raw`m`} /> is the number of samples in the dataset.
                     </div>
                     <div className='text'>
                         For the ReLU layer, the equations for the gradients are as follows:
@@ -168,9 +173,11 @@ export default function NumpyNeuralNetwork() {
                             \\
                             \frac{\partial L}{\partial W} &= \frac{1}{m} \cdot A_{\text{k-1}}^T \cdot \frac{\partial L}{\partial z_k}\\
                             \\
-                            \frac{\partial L}{\partial b} &= \frac{1}{m} \cdot \sum_{i=1}^{m} \frac{\partial L}{\partial z_k}
+                            \frac{\partial L}{\partial b} &= \frac{1}{m} \cdot \sum_{k=1}^{m} \frac{\partial L}{\partial z_k}
                         \end{align*}
                         `} />
+
+                        Here <InlineMath math={String.raw`Z_k`} /> is the input to the ReLU activation function.
                     </div>
 
 
@@ -218,7 +225,7 @@ export default function NumpyNeuralNetwork() {
                         W \cdot X = 0.
                         `} />
                         <span style={{ marginLeft: '5px'}}>This means that the neuron output does not depend on the input X and so all neurons will output the same value.
-                            This results in the network failing.</span>{' '}
+                            This will result in the network failing.</span>{' '}
 
                         </div>
                     </div>
@@ -268,7 +275,23 @@ export default function NumpyNeuralNetwork() {
                 <div className='subtitle'>
                     Results.
                 </div>
+                <div className='subsubtitle'>
+                    Network Overall Performance
+                </div>
+                <div className='text'>
+                    Here are some of the results from training the network with a variety of different settings. Larger networks with more neurons and layers tend to perform better, but 
+                    also take longer to train. It's also important to note that just increasing the time of training does not always lead to better results. Train the network
+                    for too long and the network will begin to overfit the training data and not generalise well to new data.
+                    After a lot of tweaking and testing, the network managed to achieve an accuracy of 98.42% on the test set!
+                </div>
                 <Table />
+                <div className='subsubtitle'>
+                    Visualising the Effects of Gradient Descent with Momentum
+                </div>
+                <div className='text'>
+                    Comparing two identical networks, one with momentum and one without, its obvious that the network with momentum converges much faster and smoothly to the optimal solution.
+                </div>
+                <img className='image' src="/effects_of_momentum.png" alt="Momentum Comparison"></img>
             </div>
         </div>
     )
