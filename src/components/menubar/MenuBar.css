@@ -1,19 +1,18 @@
-/* MenuBar.css */
 .MenuBar {
   background-color: #222831;
   color: #fff;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Center items vertically */
+  align-items: center;
   position: relative;
-  padding: 0.5% 1%; /* Adjust padding as needed */
+  padding: 0.5% 1%;
   font-size: calc(5px + 2vmin);
   z-index: 1000;
 }
 
 .MenuBar-welcome-react-container {
   display: flex;
-  align-items: center; /* Center items vertically */
+  align-items: center;
 }
 
 .MenuBar-welcome {

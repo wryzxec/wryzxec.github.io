@@ -17,3 +17,11 @@
     font-family: 'Crimson Text', serif;
     color: #EEEEEE;
 }
+
+.project-language {
+    font-style: bold;
+    font-weight: normal;
+    color: #6c757d;
+    margin-left: 0.3em;
+    font-size: 0.9em;
+}
