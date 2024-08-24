@@ -10,11 +10,12 @@
   font-family: 'Crimson Text, serif';
   color: #eeeeee;
   text-align: left;
-  padding-bottom: 10px;
 }
 
 .Container-title {
-  font-size: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
   margin-right: 2em;
 }
 
@@ -22,31 +23,19 @@
   font-size: 1em;
   white-space: nowrap;
   margin-left: auto;
-}
-
-.icon-container {
-  display: flex;
-  align-items: center;
-  margin-right: 1%;
-}
-
-.language-icon-python{
-  font-size: 2em;
-  color: #4B8BBE;
-}
-
-.language-icon-java{
-  font-size: 2em;
-  color: #8B4513;
+  color: #bbbbbb;
 }
 
 .Container-body {
-  font-size: 1em;
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #cccccc; 
   text-align: left;
   margin-bottom: 1%;
+  line-height: 1.5em;
 }
 
-.Container-link{
+.Container-link {
   color: #4B8BBE;
   text-decoration: none;
   font-size: 1em;
