@@ -1,0 +1,293 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Container */
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 0em; /* Reduce the bottom margin of the <h1> */
+}
+
+p {
+    margin-top: 0em;
+}
+
+h2 {
+    margin-top: 0em;
+    margin-bottom: 1em;
+}
+
+/* 
+<------------------------------------------------------------------------>
+                                Main Page
+<------------------------------------------------------------------------>
+*/
+
+main {
+    text-align: left;
+}
+
+/* Icons */
+.social-icons {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.social-icons .icon {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icons .icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Experience Section */
+#experience {
+    margin-bottom: 30px;
+    padding: 1em 2em;
+    background-color: #fafafa;
+    border-left: 4px solid #46414E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.experience-item {
+    margin-bottom: 1em;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.role {
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex: 1;
+}
+
+/* Projects Section */
+#projects {
+    margin-bottom: 30px;
+    padding: 1em 2em;
+    background-color: #fafafa;
+    border-left: 4px solid #46414E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-item h3 {
+    margin: 0;
+}
+
+.project-item p {
+    margin: 0;
+}
+
+.project-item {
+    margin-bottom: 1em;
+}
+
+.project-header {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.project-item a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px
+}
+
+/* Resources Section */
+#resources {
+    margin-bottom: 30px;
+    padding: 1em 2em;
+    background-color: #fafafa;
+    border-left: 4px solid #46414E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resource-item {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+.resource-item p {
+    margin: 0;
+}
+
+.resource-header {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.resource-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.resource-header a {
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: bold;
+    margin: 0;
+}
+
+.resource-header a:hover {
+    text-decoration: underline;
+}
+
+/* 
+<------------------------------------------------------------------------>
+                                Project Page
+<------------------------------------------------------------------------>
+*/
+
+/* Home box styling */
+.home-link {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    padding: 8px 12px;
+}
+
+.home-link a {
+    text-decoration: none;
+    color: #4a90e2;
+    font-weight: bold;
+}
+
+.home-link a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+.project-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project-subsubtitle {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.spacer {
+    margin-top: 2em;
+}
+
+.project-text {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Project List Styling */
+.project-list {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 20px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.project-list ol {
+    list-style-type: decimal;
+    margin-left: 2em;
+    padding: 0;
+}
+
+.project-list p {
+    display: inline;
+    font-weight: normal;
+}
+
+.project-list .bold-enhance {
+    font-weight: bold;
+    color: #222;
+}
+
+/* Project Table Styling */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1em auto;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.styled-table thead tr {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.styled-table th, .styled-table td {
+    text-align: left;
+    border: 0.1em solid #ddd;
+    padding: 0.7em;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.project-link a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-link a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px
+}
