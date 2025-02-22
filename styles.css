@@ -313,3 +313,9 @@ main {
     text-decoration: underline;
     text-decoration-thickness: 3px
 }
+
+.project-resource-link a:visited {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+}
