@@ -169,6 +169,7 @@ main {
 
 .resource-header a:hover {
     text-decoration: underline;
+    text-decoration-thickness: 3px
 }
 
 /* 
@@ -216,6 +217,12 @@ main {
 
 .spacer {
     margin-top: 2em;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 10px 0;
 }
 
 .project-text {
@@ -288,6 +295,21 @@ main {
 }
 
 .project-link a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px
+}
+
+.project-resource-link {
+    text-align: left;
+}
+
+.project-resource-link a {
+    color: #4a90e2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.project-resource-link a:hover {
     text-decoration: underline;
     text-decoration-thickness: 3px
 }

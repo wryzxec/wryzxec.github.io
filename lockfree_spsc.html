@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock-Free SPSC Queue</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="home-link">
+            <a href="index.html">Home</a>
+        </div>
+        <h1>Optimised Lock-Free SPSC Queue</h1>
+        <p>Building a lightning-fast, bounded, and Lock-Free single-producer single-consumer (SPSC) queue in C++.</p>
+        <div class="project-link">
+            <a href="https://github.com/wryzxec/PikaQ" target="_blank">GitHub Repo</a>
+        </div>
+        
+        <div class="spacer"></div>
+
+        <p>
+            Inspired by a low-latency C++ talk at my university I decided to build a single-producer single consumer queue,
+            with the sole purpose of being insanely fast.
+        </p>
+
+        <div class="spacer"></div>
+        
+        <div class="project-subtitle"> Queue Basics and Atomics</div>
+
+        <hr class="divider">
+
+        <div class="project-subtitle">What is an SPSC Queue?</div>
+        <p class="project-text">
+            A single-producer single-consumer (SPSC) queue is a concurrent data structure, 
+            where one producer thread exclusively writes data to the queue, 
+            while one consumer thread exclusively reads data from it. 
+            SPSC queues come in various forms. The implementation in this project uses a fixed-size circular buffer.
+            This means, that once initialised, the queue's size cannot be changed.
+            An illustration of this implementation is shown below:
+        </p>
+        <img class="image" src="./assets/spscqueue/queuestates.png" alt="spsc queue empty and full states" /> 
+
+        <div class="project-subtitle"> Push() and Pop() Operations </div>
+        <div class="project-text"> 
+            Pushing and popping elements to and from the queue is simple. To push an element,
+            we first check "Is the queue full?" If not we place an element at the tail and then increment the tail pointer
+            by 1. Similarly, When reading from the head we check "Is the queue empty?" 
+            If not we retrieve the element at the head pointer and increment the head pointer by 1.
+        </div>
+        <img class="image" src="./assets/spscqueue/push.png" alt="spsc queue push operation" />
+        <img class="image" src="./assets/spscqueue/pop.png" alt="spsc queue pop operation" />
+
+        <div class="project-subtitle">Lock-Free</div>
+        <div class="project-text">
+            In a multithreaded program, locks allow only one thread to access a shared
+            resource at a time. When a thread acquires a lock, other threads attempting to
+            acquire the same lock are blocked and must wait until the lock is released.
+
+            However, in a lock-free algorithm, there are no blocking of threads. Instead, atomic operations ensure
+            safe access to shared resources. An atomic operation is one where no other thread can see the operation in
+            an intermediate state, nor can it be interrupted by other threads/processes. Atomic variables in c++ are
+            defined using <code>std::atomic</code>.
+        </div>
+
+        <div clas="spacer"></div>
+
+        <div class="project-subtitle">Optimising the queue</div>
+
+        <hr class="divider">
+
+        <div class="project-subtitle"> The Danger of False Sharing </div>
+        <p class="project-text">
+            Modern CPUs store data in chunks called cache lines. False sharing occurs when two
+            threads modify different variables that happen to reside on the same cache line. When one thread
+            modifies one of the variables, the entire cache line is invalidated. Therefore, the other thread must reload the
+            cache line, even if the variable it intended to modify was untouched. This leads to unnecessary contention and slows performance.
+        </p>
+        <p class="project-text">
+            To avoid this we "pad" the variables with some dummy data in order to guarantee that they are located within different
+            cache lines. In C++ this can be done using <code>alignas(std::hardware_destructive_interference_size)</code>.
+            This performs an aligment by the machines cache line size, which is usually 64 bytes.
+        </p>
+        <div class="project-subtitle"> Caching Pointers </div>
+        <p class="project-text">
+            Each time an element is pushed to the queue, the implementation checks if the queue is full, 
+            while popping an element checks if the queue is empty. 
+            These checks involve loading the atomic head and tail variables using <code>m_head.load()</code> 
+            and <code>m_tail.load()</code>. 
+        </p>
+        <p class="project-text">
+            These atomic loads  
+            can introduce latency due to the cache coherency protocol. 
+            When an atomic load is performed, the CPU may need to synchronize and validate the cache line across multiple cores, 
+            leading to memory stalls and increased latency. 
+            To address this, the SPSC queue uses the cached local variables <code>m_head_cached</code> and <code>m_tail_cached</code>, 
+            reducing the need for frequent atomic operations and minimizing cache line traffic.
+        </p>
+        <p class="project-text">
+            For larger queues this optimisation makes a huge difference. In such queues
+            the likelihood of the head and tail pointers colliding is much lower and so
+            these expensive checks can add unnecessary latency.
+        </p>
+        <div class="project-subtitle"> The Modulo Operator </div>
+        <p class="project-text">
+            When looking at other SPSC queues, such as 'rigtorp' and 'folly', I noticed that they didn't seem to
+            use the modulo (<code>%</code>) operator for the circular 'wrap-around' logic. After doing more research I found
+            that this was a form of optimisation. The modulo operator is infact quite slow (in performance-critical code). This is because
+            the modulo operation performs integer division, which is not a simple operation like addition and can take many cycles.
+            To avoid this we can simply perform a check using an if-statement. We check if the tail pointer is now at the last position
+            in the buffer and if true, we reset the pointer to 0.
+        </p>
+
+        <div class="project-subtitle"> Benchmarking and Performance </div>
+        <p class="project-text">
+            Benchmark results on an Apple M4 (10 Core) processor. On one thread, the producer places items (integers) onto the buffer and on another thread
+            the consumer retrieves these items. The throughput of each queue is calculated as follows:
+        </p>        
+        \[
+        \text{Throughput} = \frac{\text{Items Processed}}{\text{Time}}
+        \]
+        <p class="project-text">
+            Time periods were measured using <code>std::chrono</code> and throughput was averaged over 1000 total runs for each
+            queue size.
+        </p>
+        <img class="image" src="./assets/spscqueue/benchmarks.png" alt="spsc queue pop operation" />
+        <p class="project-text">
+            From the graph above we can see that our queue (named PikaQ) has roughly twice the throughput of both the folly and boost queues over
+            over a variety of queue sizes, ranging form 10 - 1 million items. This of course is great and shows that PikaQ achieves its target
+            of being super fast, but it does so at a cost. Boost and folly provide additional safety features and functionality 
+            which make these queues much better suited for professional development. This additional 'overhead' may be a large factor
+            in the performance difference between the queues.
+        </p>
+        <div class="project-subtitle"> Useful Resources </div>
+        <p class="project-text">
+            Below are a list of resources that I found useful over the course of this project. 
+        </p>
+        <div class="project-resource-link">
+            <a href="https://github.com/rigtorp/SPSCQueue" target="_blank"> Rigtorp's SPSC queue</a>
+            <span>| A superfast SPSC queue which I took many bits of inspiration from.</span>
+        </div>
+        <div class="project-resource-link">
+            <a href="https://github.com/facebook/folly/blob/main/folly/ProducerConsumerQueue.h" target="_blank"> Folly SPSC Queue</a>
+            <span>| Folly, an open-source C++ library developed and used @ Facebook.</span>
+        </div>
+        <div class="project-resource-link">
+            <a href="https://www.youtube.com/watch?v=K3P_Lmq6pw0&t=38s&ab_channel=CppCon" target="_blank">Single Producer Single Consumer Lock-free FIFO From the Ground Up</a>
+            <span>| Charles Frasch @ CppCon 2023.</span>
+        </div>
+        <div class="project-resource-link">
+            <a href="https://www.youtube.com/watch?v=8uAW5FQtcvE&t=2821s&ab_channel=MeetingCpp" target="_blank">Trading at light speed: designing low latency systems in C++</a>
+            <span>| David Gross @ Meeting C++ 2022.</span>
+        </div>
+    </div>
+</body>
+
