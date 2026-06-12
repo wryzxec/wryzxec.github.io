@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/styles.css?v=5" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+        displayMath: [["$$", "$$"], ["\\\\[", "\\\\]"]]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="project-page">
+  <div class="wrap">
+    <section class="project-hero" aria-label="Project heading">
+      <a href="./index.html" class="project-hero-back">← Back to index</a>
+      <div class="project-hero-meta">
+        <p class="project-hero-updated" id="project-updated"></p>
+      </div>
+      <h1 class="project-hero-title" id="project-title">Loading project…</h1>
+      <p class="project-hero-intro" id="project-intro"></p>
+    </section>
+
+    <main class="project-page-main">
+      <section class="project-page-meta" aria-label="Project metadata">
+        <div class="project-page-meta-section project-page-meta-links">
+          <div class="project-page-link-list" id="project-links"></div>
+        </div>
+
+        <div class="project-page-meta-section project-page-meta-facts">
+          <div class="project-page-facts" id="project-facts"></div>
+        </div>
+      </section>
+
+      <section class="project-page-content" id="project-content"></section>
+    </main>
+  </div>
+
+  <footer>
+    <span class="footer-copy" id="footer-copy">© 2026 YourName</span>
+  </footer>
+
+  <script type="module" src="./js/project.js?v=5"></script>
+</body>
+</html>
