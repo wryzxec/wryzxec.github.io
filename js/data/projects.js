@@ -4,7 +4,7 @@ export const projects = [
     title: "Artificial Life (ALife)",
     status: "live",
     date: "2026",
-    excerpt: "An extension of the famous Conways Game of Life.",
+    excerpt: "Exploring various cellular automata systems, with increasing complexity.",
     tags: ["C++", "SFML", "Simulation"],
     links: [
       { label: "View Source", href: "https://github.com/yourhandle/portfolio-site" }
